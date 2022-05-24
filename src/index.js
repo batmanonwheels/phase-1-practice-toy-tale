@@ -10,13 +10,6 @@ const getToys = () => {
       .then((arr) => arr.forEach((toy) => renderToys(toy)))
 }
 
-// function parseToys(arr) {
-//   arr.forEach(toy => {
-//     renderToys(toy)
-//     console.log(toy)
-//   });
-// }
-
 const renderToys = (toy) => {
   let h2 = document.createElement('h2')
   let img = document.createElement('img')
@@ -25,12 +18,20 @@ const renderToys = (toy) => {
   let card = document.createElement('div')
 
   h2.textContent = toy.name
+
   img.src = toy.image
   img.className = 'toy-avatar'
-  p.textContent = `${toy.likes} likes`
+
+  let likes = toy.likes
+  p.textContent = `${likes} likes`
+
   btn.className = 'like-btn'
   btn.textContent = 'like'
   btn.id = toy.id
+  btn.addEventListener('click', () => {
+    p.textContent = `${likes + 1} likes`
+  })
+
   card.className = 'card'
 
   card.append(h2, img, p, btn)
