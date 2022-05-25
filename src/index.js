@@ -29,7 +29,8 @@ const renderToys = (toy) => {
   btn.textContent = 'like'
   btn.id = toy.id
   btn.addEventListener('click', () => {
-    p.textContent = `${likes + 1} likes`
+    likes++
+    p.textContent = `${likes} likes`
   })
 
   card.className = 'card'
